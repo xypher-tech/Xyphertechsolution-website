@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xypher Tech Solutions | Portfolio</title>
+
+  <!-- Fonts & GSAP CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #00ffe0;
+      --bg-dark: #0c0c0c;
+      --text: #ffffff;
+      --accent: #1f1f1f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      background: radial-gradient(circle, #111 0%, #000 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: auto;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 20px var(--primary);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-top: 1rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--accent);
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s;
+      border-radius: 20px;
+    }
+
+    nav a:hover {
+      background-color: var(--primary);
+      color: #000;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+      transform: translateY(60px);
+      opacity: 0;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-links {
+      text-align: center;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      background-color: var(--primary);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+      transition: all 0.3s;
+    }
+
+    .contact-links a:hover {
+      background-color: #00e6d6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+      background-color: var(--accent);
+      margin-top: 3rem;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .logo {
+        width: 90px;
+        height: 90px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        padding: 0.6rem 1.2rem;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .contact-links a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Image 1.jpg" class="logo" alt="Xypher Logo">
+  <h1>Xypher Tech Solutions</h1>
+  <p>Graphics  | Motion | UI/UX | Web Development</p>
+</header>
+
+<nav>
+  <a href="#aboutme">About Me</a>
+  <a href="#graphics">Graphics</a>
+  <a href="#motion">Motion</a>
+  <a href="#uiux">UI/UX</a>
+  <a href="#web">Web</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<br>
+<section id="aboutme">
+  <h2>About Me</h2>
+  <p>I'm a passionte and versatile designer and developer with a strong focus on visual communication and digital solutions. I specialize in designing eye-catching unique logos and animating social media content. My skill set also includes UI/UX design for web and mobile platforms as well as system design and development tailored to business needs.</p>
+  <br>
+  <p>On the technical side, I build responsive and user-friendly websites using HTML, CSS and JavaScript. When needed, I also handle full-stack development to deliver complete, functional web applications from front to back.</p>
+  <br>
+  <p>Whether it's bringing a brand to life visually or developing a system that powers business operations, I'm committed to delivering quality, creativity and impact.</p>
+</section>
+
+<section id="graphics">
+  <h2>Graphics Design</h2>
+  <p>I deliver stunning visuals from branding kits, flyers, posters, to product ads using Adobe Photoshop and Illustrator.</p>
+  <br>
+  <br>
+  <div class="gallery">
+    <img src="Image 2.jpeg" alt="Concert Poster">
+    <img src="Image 3.jpeg" alt="Digital Sale Poster">
+    <img src="Image 4.jpeg" alt="Exam Reminder">
+    <img src="Image 5.jpeg" alt="Movie Poster">
+    <img src="Image 6.jpeg" alt="Bill Board Poster">
+    <img src="Image 7.jpg" alt="Travel Poster">
+    <img src="Image 8.jpg" alt="Burger Poster">
+    <img src="Image 9.jpeg" alt="Travel Poster">
+    <img src="Image 10.jpeg" alt="Beauty Poster">
+  </div>
+</section>
+
+<section id="motion">
+  <h2>Motion Graphics</h2>
+   <p>Animated content for social media, logo animations, intros, and explainer videos — powered by After Effects.</p>
+   <br>
+   <br>
+  <div class="gallery">
+    <video controls poster="Image 11.jpeg" width="300" heigth="300">
+<source src="Xypher Techs.Mp4" type="video/mp4">Your browser doesn't support the video tag.
+</video>
+    <video controls poster="Image 12.jpeg" width="300" heigth="300">
+<source src="After Effects.Mp4" type="video/mp4">Your browser doesn't support the video tag.
+</video> 
+    <video controls poster="Image 13.jpeg" width="300" heigth="300">
+<source src="Card.Mp4" type="video/mp4">Your browser doesn't support the video tag.
+</video>
+  </div>
+</section>
+
+<section id="uiux">
+  <h2>UI/UX Designs</h2>
+  <p>Mobile app and website interface design focused on clarity, usability, and beauty using Adobe XD.</p>
+  <br>
+  <br>
+  <div class="gallery">
+    <img src="Img 14.jpeg" alt="Car Rental App">
+    <img src="Img 15.jpeg" alt="E-commerce App">
+    <img src="Img 16.jpeg" alt="Food Delivery App">
+    <img src="Img 17.jpeg" alt="Food Delivery App">
+    <img src="Img 18.jpeg" alt="Food Delivery App">
+    <img src="Img 19.jpeg" alt="Food Delivery App">
+  </div>
+</section>
+
+<section id="web">
+  <h2>Web Projects</h2>
+   <p>Clean, responsive front-end websites using HTML, CSS, and JavaScript. I also handle full-stack development where needed.</p>
+   <br>
+   <br>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400x250?text=E-commerce+Website" alt="Website">
+    <img src="https://via.placeholder.com/400x250?text=Responsive+Portfolio" alt="Portfolio">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="https://wa.me/256742851503" target="_blank">WhatsApp</a>
+    <a href="tel:+256742851503">Call</a>
+    <a href="https://www.tiktok.com/@xypher.tech.solut?_t=ZM-8vaN8CmmFQl&_r=1" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/xypher_tech_solutions?igsh=MWV1dDAwbzM0dWF2cg%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Xypher Tech Solutions | All rights reserved.
+</footer>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray("section").forEach(section => {
+    gsap.to(section, {
+      y: 0,
+      opacity: 1,
+      duration: 1.3,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  });
+
+  gsap.from(".logo", {
+    scale: 0,
+    duration: 1.5,
+    ease: "elastic.out(1, 0.5)"
+  });
+
+  gsap.from("header h1", {
+    y: -50,
+    opacity: 0,
+    delay: 0.3,
+    duration: 1
+  });
+
+  gsap.from("nav a", {
+    y: -20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1
+  });
+</script>
+
+</body>
+</html>
