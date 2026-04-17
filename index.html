@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xypher Tech Solutions</title>
+  <link rel="icon" href="assets/logo2.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header / Centered Logo -->
+  <header class="site-header">
+    <div class="container nav-grid">
+      <a class="brand" href="#">
+        <img src="assets/logo1.png" alt="Xypher Tech Solutions logo" class="brand-logo">
+        <span class="brand-text">
+          <span style="color: black;">Xypher</span>
+          <span style="color: red;">Tech</span>
+          <span style="color: blue;">Solutions</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO + NAV WRAPPER -->
+  <section class="hero-wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          
+          <h1 class="hero-title">Powering the Next Generation of Tech</h1>
+          
+          <p class="hero-sub">
+            We build fast, secure, and reliable websites, web and desktop applications, high-end systems, AI Solutions and Automation (AI driven Systems) and Scalable Databases. From design to databases and gadget sales, everything you need, all under one roof.
+          </p>
+
+          <p class="hero-extra">
+            At Xypher Tech Solutions, we combine innovation, performance, and creativity to deliver digital solutions that help businesses grow and stand out in a competitive world. Whether you're starting small or scaling big, we provide the technology backbone you can rely on.
+          </p>
+
+          <ul class="hero-points">
+            <li><span class="icon">💻</span> Custom-built systems tailored to your business needs</li>
+            <li><span class="icon">🤖</span> AI-powered systems that automate and optimize business operations</li>
+            <li><span class="icon">⚙️</span> Intelligent automation to reduce manual work and increase efficiency</li>
+            <li><span class="icon">🔒</span> Scalable, secure, and high-performance architecture</li>
+            <li><span class="icon">🎨</span> Modern UI/UX design that drives engagement</li>
+            <li><span class="icon">🛠️</span> Reliable support, maintenance, and system upgrades</li>
+            <li><span class="icon">📱</span> Gadget sales including phones, laptops, and tech accessories with support</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <nav aria-labelledby="nav-title-main">
+      <ul>
+        <li>
+          <h2 id="nav-title-main">Site Navigation</h2>
+        </li>
+    
+        <li>
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+          </a>
+        </li>
+    
+        <li>
+          <a href="about.html">
+            <i class="fa-solid fa-user"></i>
+            About Us
+          </a>
+        </li>
+    
+        <li>
+          <a href="services.html">
+            <i class="fa-solid fa-gears"></i>
+            Services
+          </a>
+        </li>
+    
+        <li>
+          <a href="portfolio.html">
+            <i class="fa-solid fa-briefcase"></i>
+            Portfolio
+          </a>
+        </li>
+    
+        <li>
+          <a href="certificate.html">
+            <i class="fa-solid fa-certificate"></i>
+            Certificate
+          </a>
+        </li>
+    
+        <li>
+          <a href="contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+    
+        <li>
+          <a href="social.html">
+            <i class="fa-solid fa-share-nodes"></i>
+            Social Sites
+          </a>
+        </li>
+    
+        <li>
+          <a href="faq.html">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQs & Support
+          </a>
+        </li>
+    
+      </ul>
+    </nav>
+
+  </section>
+
+  <!-- MOBILE BUTTON -->
+  <a href="menu.html" class="mobile-nav-btn">Open Navigation</a>
+
+  <!-- SCROLL TO TOP (MOBILE ONLY) -->
+<button class="scroll-top-btn" onclick="scrollToTop()">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+  <!-- FOOTER -->
+<footer class="site-footer fade-up">
+  <div class="footer-content">
+    © 2025 Xypher Tech Solutions. All Rights Reserved
+  </div>
+</footer>
+
+  <script>
+    const btn = document.querySelector(".mobile-nav-btn");
+    
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        btn.style.opacity = "0";
+        btn.style.transform = "translateY(-10px)";
+        btn.style.pointerEvents = "none";
+      } else {
+        btn.style.opacity = "1";
+        btn.style.transform = "translateY(0)";
+        btn.style.pointerEvents = "auto";
+      }
+    });
+
+    let lastScrollTopBtn = 0;
+const scrollBtn = document.querySelector(".scroll-top-btn");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 150 && currentScroll > lastScrollTopBtn) {
+    // scrolling DOWN → show button
+    scrollBtn.classList.add("show");
+  } else {
+    // scrolling UP → hide button
+    scrollBtn.classList.remove("show");
+  }
+
+  lastScrollTopBtn = currentScroll;
+});
+
+/* SCROLL TO TOP FUNCTION */
+function scrollToTop(){
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+  </script>
+
+</body>
+</html>

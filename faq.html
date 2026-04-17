@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xypher-Tech'S FAQs</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue:#0b63ff;
+      --red:#e53935;
+      --black:#0b0b0b;
+      --white:#ffffff;
+      --muted:#6b7280;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:#fff;
+      color:var(--black);
+      padding-top:90px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px;
+    }
+
+    /* HEADER */
+    .site-header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:#fff;
+      z-index:1000;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-grid{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      color:#000;
+      font-weight:700;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .brand-logo{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+    }
+
+    /* SECTION */
+    .section{
+      padding:60px 0;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .section-header h2{
+      font-size:32px;
+      position:relative;
+      display:inline-block;
+      cursor:pointer;
+    }
+
+    .section-header h2::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0%;
+      height:3px;
+      background:var(--red);
+      transition:width 0.4s ease;
+    }
+
+    .section-header h2:hover::after{
+      width:100%;
+    }
+
+    .section-header p{
+      color:var(--muted);
+      max-width:700px;
+      margin:10px auto 0;
+      line-height:1.6;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-text h3{
+      font-size:22px;
+      margin-bottom:10px;
+      position:relative;
+      display:inline-block;
+    }
+
+    .about-text h3::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0%;
+      height:2px;
+      background:var(--blue);
+      transition:width 0.4s;
+    }
+
+    .about-text h3:hover::after{
+      width:100%;
+    }
+
+    .about-text p{
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+
+    .muted{color:var(--muted);}
+
+    .about-card{
+      background:#fff;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    .about-text .icon{
+      margin-right:10px;
+      color:var(--blue);
+      transition:0.3s;
+    }
+
+    .about-card:hover .icon{
+      color:var(--red);
+      transform:scale(1.1);
+    }
+
+    .about-visual{
+      text-align:center;
+    }
+
+    .about-visual img{
+      width:220px;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      transition:transform 0.4s ease;
+    }
+
+    .about-visual img:hover{
+      transform:scale(1.05) rotate(2deg);
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all 0.8s ease;
+    }
+
+    .fade-up.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* NAV */
+    nav {
+      filter: drop-shadow(0.25rem 0.25rem 0.5rem #0005);
+      width: 100%;
+      max-width: 14rem;
+      margin: 40px auto;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @keyframes firstShow {
+        0%, 100% { transform: perspective(1000px) translate3d(0, 0, 0em); }
+        50% { transform: perspective(1000px) translate3d(0, 0, 3em); }
+    }
+
+    @keyframes show {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    ul {
+      position: relative;
+      perspective: 1000px;
+      list-style: none;
+      padding-left: 0;
+      border-radius: 1rem;
+      transform-style: preserve-3d;
+      font: lighter 1rem Helvetica, sans-serif;
+    }
+
+    ul li {
+      height: 3rem;
+      display: flex;
+      background: linear-gradient(#00000005, #0000), #fff;
+      border-bottom: 1px solid #0001;
+      box-shadow: inset 0 0 1rem -0.5rem #0002;
+      transition: transform 0.35s, box-shadow 0.35s, background 0.35s;
+      opacity: 0;
+      animation: firstShow 0.5s ease-in-out, show 0.15s linear forwards;
+    }
+
+    ul li:nth-child(1){animation-delay:0.50s;}
+    ul li:nth-child(2){animation-delay:0.60s;}
+    ul li:nth-child(3){animation-delay:0.70s;}
+    ul li:nth-child(4){animation-delay:0.80s;}
+    ul li:nth-child(5){animation-delay:0.90s;}
+    ul li:nth-child(6){animation-delay:1.00s;}
+    ul li:nth-child(7){animation-delay:1.10s;}
+    ul li:nth-child(8){animation-delay:1.20s;}
+
+    ul li:first-child{
+      background:var(--blue);
+      justify-content:center;
+      border-radius:1rem 1rem 0 0;
+    }
+
+    ul li:last-child{
+      border-radius:0 0 1rem 1rem;
+    }
+
+    ul li:hover{
+      transform:translate3d(0,0,3rem);
+    }
+
+    ul h2, ul a{
+      display:flex;
+      align-items:center;
+      flex:1;
+      padding:0 1rem;
+      text-decoration:none;
+      color:#000;
+      font-size:0.9rem;
+    }
+
+    ul h2{
+      color:#fff;
+      justify-content:center;
+      font-weight:700;
+    }
+
+    ul i{
+      width:1.2rem;
+      margin-right:10px;
+      color:var(--blue);
+    }
+
+    ul li:hover i{
+      color:var(--red);
+    }
+
+    @media(max-width:800px){
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion){
+      nav *{
+        animation:none !important;
+        transition:none !important;
+      }
+    }
+
+    /* WRAPPER ADDED  */
+    .hero-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      position:relative;
+      
+    }
+
+    /*SIMPLE CENTERED BORDER LAYOUT */
+
+    .hero-wrapper{
+        max-width:1100px;
+        margin:120px auto 40px auto;
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        gap:30px;
+        padding:20px;
+    }
+
+    /* LEFT BOX (ABOUT CONTENT) */
+    .about.section{
+        flex:1;
+        border:1px solid rgba(0,0,0,0.12);
+        border-radius:14px;
+        padding:20px;
+        background:#fff;
+        box-shadow:0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    /* RIGHT BOX (NAVIGATION) */
+    nav{
+        flex:0 0 220px;
+        border:1px solid rgba(0,0,0,0.12);
+        border-radius:14px;
+        padding:10px;
+        background:#fff;
+    }
+
+    /* CENTER ALIGNMENT */
+    .hero-wrapper{
+        justify-content:center;
+    }
+
+    /* MAKE SURE IMAGE STAYS INSIDE FLOW */
+    .about-visual{
+        margin-top:20px;
+    }
+
+    /* Bring the whole right side (nav area) closer to header */
+    .hero-wrapper{
+        margin-top:80px !important;
+        align-items:flex-start;
+    }
+
+    /* Move navigation slightly up */
+    nav{
+        top: 120px; /* adjusts distance from top bar */
+    }
+
+    /* Push image lower under nav */
+    .about-visual{
+        margin-top:120px;  /* create space so image sits under nav */
+    }
+
+    /* optional: tighten spacing between nav items and image alignment */
+    .about-visual img{
+        display:block;
+        margin:0 auto;
+    }
+
+    /* Cancel ALL  absolute positioning */
+    nav{
+        position: static !important;
+        transform: none !important;
+        top: auto !important;
+        right: auto !important;
+        margin: 30px auto 0 auto !important;
+        display: block;
+    }
+
+    /* layout flows vertically */
+    .hero-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Keep about section first */
+    .about.section{
+        order: 1;
+        width: 100%;
+    }
+
+    /* NAV goes next */
+    nav{
+        order: 2;
+        width: fit-content;
+    }
+
+    /* IMAGE goes last */
+    .about-visual{
+        order: 3;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    /* Center everything */
+    nav ul{
+        margin: 0 auto;
+    }
+
+    /* NAV OUTSIDE(CLOSE FIX) */
+
+   .hero-wrapper{
+        position: relative;
+    }
+
+    /* Attach nav just outside border */
+    nav{
+        position: absolute !important;
+        top: 20px !important;
+        right: -80px !important;  /* closer attachment */
+
+        transform: none !important;
+        margin: 0 !important;
+
+        z-index: 10;
+    }
+
+    /* reduce unnecessary spacing */
+    .hero-wrapper{
+        padding-right: 80px;
+    }
+
+    /* keep clean spacing */
+    .about.section{
+        padding-top: 20px;
+    }
+
+    /* MOBILE BUTTON */
+    .mobile-nav-btn{
+        display: none;
+        position: fixed;
+        top: 95px;
+        left: 12px;
+        z-index: 3000;
+
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+
+        background:rgba(255,255,255,0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border:1px solid rgba(255,255,255,0.3);
+        color:var(--black);
+
+        font-size:18px;
+        cursor:pointer;
+
+        box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    /* mobile nav */
+    @media (max-width: 768px){
+
+        .hero-wrapper{
+            display:flex !important;
+            flex-direction:column !important;
+            justify-content:center !important;
+            align-items:center !important;
+            text-align:center !important;
+            margin:0 auto !important;
+            padding:20px !important;
+        }
+
+        /* NAV PANEL */
+        nav{
+            position:fixed !important;
+            top:110px !important;
+
+             /* increased slide distance */
+            left:-320px;
+
+            width:220px;
+            height:auto;
+
+            margin:0 !important;
+            transform:none !important;
+
+            background:rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border-right:1px solid rgba(255,255,255,0.3);
+            box-shadow:5px 0 30px rgba(0,0,0,0.2);
+
+            transition:0.45s ease;
+            z-index:2500;
+        }
+
+        nav.active{
+            left:0;
+        }
+
+        .mobile-nav-btn{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            /* button position */
+            top:130px;
+            left:2px;
+            position: fixed;
+        }
+
+        .about.section{
+            width:100% !important;
+            order:1;
+        }
+
+        .about-visual{
+            order:3;
+            margin-top:20px !important;
+            text-align:center;
+        }
+
+        nav ul{
+            margin:0 auto !important;
+        }
+    }
+
+    /* SCROLL HIDE STATE */
+    .hide-ui .mobile-nav-btn{
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: 0.4s ease;
+    }
+
+    .hide-ui nav{
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: 0.4s ease;
+    }
+
+    .faq-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.faq-grid h3{
+  font-size:18px;
+}
+
+.faq-grid p{
+  margin-top:8px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+@media(max-width:768px){
+  .faq-grid{
+    grid-template-columns:1fr;
+  }
+}
+.faq-grid{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+/* CATEGORY BOX */
+.faq-category{
+  border:1px solid rgba(0,0,0,0.1);
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
+  background:#fff;
+}
+
+/* CATEGORY TITLE */
+.cat-title{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:18px;
+  margin-bottom:15px;
+  font-weight:700;
+
+  cursor:pointer;              /* clickable feel */
+  transition:0.3s ease;
+  padding:8px 10px;
+  border-radius:10px;
+}
+
+.cat-title{
+  width: fit-content;
+}
+
+/* CATEGORY COLORS */
+.cat-title.web{ color:#0b63ff; }
+.cat-title.ai{ color:#8e44ad; }
+.cat-title.db{ color:#16a085; }
+.cat-title.design{ color:#e67e22; }
+.cat-title.general{ color:#2c3e50; }
+
+/* HOVER EFFECT (COLOR + BACKGROUND) */
+.cat-title.web:hover{
+  color:#ffffff;
+  background:#0b63ff;
+}
+
+.cat-title.ai:hover{
+  color:#ffffff;
+  background:#8e44ad;
+}
+
+.cat-title.db:hover{
+  color:#ffffff;
+  background:#16a085;
+}
+
+.cat-title.design:hover{
+  color:#ffffff;
+  background:#e67e22;
+}
+
+.cat-title.general:hover{
+  color:#ffffff;
+  background:#2c3e50;
+}
+
+/* ICON ANIMATION ON HOVER */
+.cat-title:hover .cat-icon{
+  transform:scale(1.2) rotate(5deg);
+  transition:0.3s ease;
+}
+
+/* CATEGORY ICON ANIMATION */
+.cat-icon{
+  animation: floatIcon 2s infinite ease-in-out;
+}
+
+.cat-title{
+  position:relative;
+  overflow:hidden;
+}
+
+/* subtle shine sweep */
+.cat-title::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:0.5s;
+}
+
+.cat-title:hover::after{
+  left:100%;
+}
+
+@keyframes floatIcon{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-4px); }
+}
+
+/* FAQ ITEM */
+.faq-item{
+  margin-bottom:15px;
+  padding:12px;
+  border-radius:10px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+/* HOVER EFFECT */
+.faq-item:hover{
+  background:#f9f9f9;
+  transform:translateX(5px);
+}
+
+/* QUESTION STYLE */
+.faq-item h3{
+  position:relative;
+  display:inline-block;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* QUESTION ICON */
+.q-icon{
+  color:var(--blue);
+  margin-right:8px;
+}
+
+/* UNDERLINE ANIMATION */
+.faq-item h3::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:2px;
+  background:var(--blue);
+  transition:0.4s ease;
+}
+
+.faq-item h3:hover::after{
+  width:100%;
+}
+
+/* TEXT */
+.faq-item p{
+  margin-top:8px;
+  color:var(--muted);
+  line-height:1.6;
+}  
+
+/* FOOTER BASE STYLE */
+.site-footer{
+  background:#0b0b0b;
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  font-size:14px;
+
+  position:relative;
+  width:100%;
+  margin-top:60px;
+
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+/* TEXT CENTER WRAPPER */
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* FADE-IN WHEN VISIBLE */
+.site-footer.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* SCROLL TO TOP BUTTON */
+.scroll-top-btn{
+  position: fixed;
+  bottom: 25px;
+  right: 15px;
+
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+
+  background: var(--blue);
+  color: #fff;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+
+  transition: all 0.4s ease;
+  z-index: 3000;
+}
+
+/* SHOW STATE */
+.scroll-top-btn.show{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* HOVER EFFECT */
+.scroll-top-btn:hover{
+  background: var(--red);
+  transform: translateY(-3px);
+}
+
+/* ONLY MOBILE */
+@media (min-width: 769px){
+  .scroll-top-btn{
+    display: none;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container nav-grid">
+            <a class="brand" href="index.html">
+                <img src="assets/logo1.png" class="brand-logo">
+                <span>Xypher Tech Solutions</span>
+            </a>
+        </div>
+    </header>
+
+    <button class="mobile-nav-btn" onclick="toggleNav()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!--  WRAPPER ADDED -->
+    <div class="hero-wrapper">
+
+        <!-- NAV -->
+        <nav aria-labelledby="nav-title-main">
+            <ul>
+
+                <li><h2 id="nav-title-main">Site Navigation</h2></li>
+
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li>
+                    <a href="about.html">
+                        <i class="fa-solid fa-user"></i>
+                        About Us
+                    </a>
+                </li>
+                <li><a href="services.html"><i class="fa-solid fa-gears"></i>Services</a></li>
+                <li><a href="portfolio.html"><i class="fa-solid fa-briefcase"></i>Portfolio</a></li>
+                <li><a href="certificate.html"><i class="fa-solid fa-certificate"></i>Certificate</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+                <li><a href="social.html"><i class="fa-solid fa-share-nodes"></i>Social Sites</a></li>
+                <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i>FAQs</a></li>
+            </ul>
+        </nav>
+
+<!-- ADVANCED FAQ SECTION -->
+<section class="about section">
+
+    <div class="container">
+  
+      <div class="section-header fade-up">
+        <h2>Technical & Service FAQs</h2>
+        <p>
+          Explore our core technologies, services, and digital solutions across software development, AI, databases, and design.
+        </p>
+      </div>
+  
+      <div class="faq-grid fade-up">
+  
+        <!-- WEB CATEGORY -->
+        <div class="faq-category">
+          <h3 class="cat-title web"><i class="fa-solid fa-globe cat-icon"></i> Web & Web Apps</h3>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> What kind of web systems do you build?</h3>
+            <p>We build responsive websites and full-stack web applications including dashboards, e-commerce, and business systems.</p>
+          </div>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you build APIs?</h3>
+            <p>Yes, we design REST APIs for secure communication between frontend and backend systems.</p>
+          </div>
+        </div>
+  
+        <!-- AI CATEGORY -->
+        <div class="faq-category">
+          <h3 class="cat-title ai"><i class="fa-solid fa-robot cat-icon"></i> AI & Automation</h3>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you develop AI systems?</h3>
+            <p>Yes, we create AI chatbots, automation tools, and intelligent business systems.</p>
+          </div>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Can AI be integrated into websites?</h3>
+            <p>Yes, we integrate AI features like chat assistants and smart automation into web platforms.</p>
+          </div>
+        </div>
+  
+        <!-- DATABASE CATEGORY -->
+        <div class="faq-category">
+          <h3 class="cat-title db"><i class="fa-solid fa-database cat-icon"></i> Database Systems</h3>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> What databases do you use?</h3>
+            <p>We work with MySQL and PostgreSQL for secure and scalable data management systems.</p>
+          </div>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you optimize databases?</h3>
+            <p>Yes, we handle performance tuning, normalization, and secure data structuring.</p>
+          </div>
+        </div>
+  
+        <!-- DESIGN CATEGORY -->
+        <div class="faq-category">
+          <h3 class="cat-title design"><i class="fa-solid fa-palette cat-icon"></i> UI/UX & Design</h3>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you offer UI/UX design?</h3>
+            <p>Yes, we design clean, user-friendly interfaces focused on experience and usability.</p>
+          </div>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you handle branding?</h3>
+            <p>We create logos, brand identities, and full visual systems for businesses.</p>
+          </div>
+        </div>
+  
+        <!-- GENERAL CATEGORY -->
+        <div class="faq-category">
+          <h3 class="cat-title general"><i class="fa-solid fa-cogs cat-icon"></i> Support & Systems</h3>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Do you offer maintenance?</h3>
+            <p>Yes, we provide ongoing support, updates, and system improvements.</p>
+          </div>
+  
+          <div class="faq-item">
+            <h3><i class="fa-solid fa-question q-icon"></i> Can you upgrade my system?</h3>
+            <p>Yes, we modernize outdated systems with better performance and design.</p>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+
+    </div>
+
+    <!-- SCROLL TO TOP (MOBILE ONLY) -->
+<button class="scroll-top-btn" onclick="scrollToTop()">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+    <!-- FOOTER -->
+<footer class="site-footer fade-up">
+    <div class="footer-content">
+      © 2025 Xypher Tech Solutions. All Rights Reserved
+    </div>
+  </footer>
+
+
+    <script>
+        const elements = document.querySelectorAll('.fade-up');
+        const btn = document.querySelector(".mobile-nav-btn");
+        const nav = document.querySelector("nav");
+
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {threshold:0.2});
+
+        elements.forEach(el => observer.observe(el));
+
+        function toggleNav(){
+            nav.classList.toggle("active");
+        }
+
+        // close when clicking outside nav
+        document.addEventListener("click", function(e){
+            const clickedInsideNav = nav.contains(e.target);
+            const clickedButton = btn.contains(e.target);
+
+            if(!clickedInsideNav && !clickedButton){
+                nav.classList.remove("active");
+            }
+        });
+
+        //  SMOOTH SCROLL EFFECT (BUTTON + MENU TOGETHER)
+        let lastScroll = 0;
+
+        window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+
+        if (currentScroll > 80 && currentScroll > lastScroll) {
+            // scrolling down → hide UI
+            document.body.classList.add("hide-ui");
+        } else {
+            // scrolling up → show UI
+            document.body.classList.remove("hide-ui");
+        }
+
+            lastScroll = currentScroll;
+        });
+
+        const footer = document.querySelector(".site-footer");
+
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    footer.classList.add("show");
+                } else {
+                    footer.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        footerObserver.observe(footer);
+
+        let lastScrollTopBtn = 0;
+const scrollBtn = document.querySelector(".scroll-top-btn");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 150 && currentScroll > lastScrollTopBtn) {
+    // scrolling DOWN → show button
+    scrollBtn.classList.add("show");
+  } else {
+    // scrolling UP → hide button
+    scrollBtn.classList.remove("show");
+  }
+
+  lastScrollTopBtn = currentScroll;
+});
+
+/* SCROLL TO TOP FUNCTION */
+function scrollToTop(){
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+    </script>
+
+</body>
+</html>

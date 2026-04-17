@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xypher-Tech'S Menu</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --blue:#0b63ff;
+      --red:#e53935;
+      --black:#0b0b0b;
+      --white:#ffffff;
+    }
+
+    /* HEADER */
+    .site-header{
+      background:var(--white);
+      border-bottom:1px solid rgba(11,11,11,0.04);
+    }
+
+    .site-header{
+        background:var(--white);
+        border-bottom:1px solid rgba(11,11,11,0.04);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:20px;
+    }
+
+    .nav-grid{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:var(--black);
+    }
+
+    .brand-logo{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+
+    .brand-text{
+      font-weight:700;
+      font-family:Helvetica, sans-serif;
+      font-size:20px;
+    }
+
+    /* NAV */
+    nav {
+      filter: drop-shadow(0.25rem 0.25rem 0.5rem #0005);
+      width: 100%;
+      max-width: 14rem;
+      margin: 40px auto;
+    }
+
+    @keyframes firstShow {
+        0%, 100% { transform: perspective(1000px) translate3d(0, 0, 0em); }
+        50% { transform: perspective(1000px) translate3d(0, 0, 3em); }
+    }
+
+    @keyframes show {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    ul {
+      position: relative;
+      perspective: 1000px;
+      list-style: none;
+      padding-left: 0;
+      box-sizing: border-box;
+      border-radius: 1rem;
+      transform-style: preserve-3d;
+      font: lighter 1rem Helvetica, sans-serif;
+    }
+
+    ul li {
+      height: 3rem;
+      display: flex;
+      background: linear-gradient(#00000005, #0000), #fff;
+      border-bottom: 1px solid #0001;
+      background-clip: padding-box;
+      box-shadow: inset 0 0 1rem -0.5rem #0002;
+      transition: transform 0.35s, box-shadow 0.35s, background 0.35s;
+      transform: translate3d(0,0,0);
+      opacity: 0;
+      animation: 
+        firstShow 0.5s ease-in-out,
+        show 0.15s linear forwards;
+    }
+
+    ul li:nth-child(1) { animation-delay: 0.50s; }
+    ul li:nth-child(2) { animation-delay: 0.60s; }
+    ul li:nth-child(3) { animation-delay: 0.70s; }
+    ul li:nth-child(4) { animation-delay: 0.80s; }
+    ul li:nth-child(5) { animation-delay: 0.90s; }
+    ul li:nth-child(6) { animation-delay: 1.00s; }
+    ul li:nth-child(7) { animation-delay: 1.10s; }
+    ul li:nth-child(8) { animation-delay: 1.20s; }
+
+    ul li:first-child {
+      border-radius: 1rem 1rem 0 0;
+    }
+
+    ul li:last-child {
+      border-radius: 0 0 1rem 1rem;
+    }
+
+    ul li:hover,
+    ul li:focus-within {
+      transform: translate3d(0,0,3rem);
+    }
+
+    ul li:hover + li,
+    ul li:focus-within + li {
+      box-shadow: inset 0 1rem 1rem -1rem #0003;
+      transform: translate3d(0,0,2rem);
+    }
+
+    ul li:hover + li + li,
+    ul li:focus-within + li + li {
+      box-shadow: inset 0 1rem 0.5rem -0.75rem #0002;
+    }
+
+    ul h2, ul a {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      padding: 0 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    ul h2 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    /* ICON STYLE */
+    ul i {
+      margin-right: 10px;
+      width: 1.2rem;
+      font-size: 16px;
+      color: var(--blue);
+    }
+
+    ul li:hover i {
+      color: var(--red);
+    }
+
+    /* TITLE */
+    ul li:first-child {
+        background: var(--blue);
+        border-bottom: none;
+        justify-content: center;
+    }
+
+    #nav-title-main {
+        color: white;
+        justify-content: center;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    /* BACK BUTTON */
+    .mobile-nav-btn{
+      display:block;
+      margin:20px auto;
+      text-align:center;
+      padding:12px 20px;
+      background:var(--red);
+      color:#fff;
+      border-radius:10px;
+      text-decoration:none;
+      width:fit-content;
+      font-family: Helvetica, sans-serif;
+    }
+
+    /* Push navigation slightly down */
+    .hero-wrapper nav{
+        margin-top: 80px; /* adjust: 20px–50px depending on your taste */
+    }
+
+    /* Push mobile button slightly down */
+    .mobile-nav-btn{
+        margin-top: 80px;
+    }
+
+    @media (prefers-reduced-motion) {
+      nav * {
+        transition-duration: 0s !important;
+        animation-duration: 0s !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #fff;
+      padding-top: 90px; /* adjust if header height changes */
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-grid">
+      <a class="brand" href="index.html">
+        <img src="assets/logo1.png" alt="Xypher Tech Solutions logo" class="brand-logo">
+        <span class="brand-text">
+          <span style="color: black;">Xypher</span>
+          <span style="color: red;">Tech</span>
+          <span style="color: blue;">Solutions</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav aria-labelledby="nav-title-main">
+    <ul>
+      <li><h2 id="nav-title-main">Site Navigation</h2></li>
+
+      <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-user"></i>About Us</a></li> 
+      <li><a href="services.html"><i class="fa-solid fa-gears"></i>Services</a></li>
+      <li><a href="portfolio.html"><i class="fa-solid fa-briefcase"></i>Portfolio</a></li>
+      <li><a href="certificate.html"><i class="fa-solid fa-certificate"></i>Certificate</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+      <li>
+        <a href="social.html">
+            <i class="fa-solid fa-share-nodes"></i>
+            Social Sites
+        </a>
+      </li>
+      <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i>FAQs & Support</a></li>
+    </ul>
+  </nav>
+
+</body>
+</html>
